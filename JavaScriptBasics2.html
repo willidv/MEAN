@@ -1,0 +1,40 @@
+function magic_multiply(x, y){
+    if (typeof(x) === 'number' && typeof(y) === 'number'){
+        if (x === 0 && y === 0){
+            return(x);
+        }
+        return(x*y);
+    }
+    if(typeof x === 'object'){
+        for (let i=0; i<x.length; i++){
+            x[i] *= y;
+        }
+        return(x);
+    }
+    if(typeof(x) === "string" || typeof(y) === "string"){
+        console.log("Cannot multiply numbers and strings");
+    }
+    if(typeof(x) === "string" && typeof(y)=== "number"){
+        console.log(x);
+          var num = 0;
+          do{
+              console.log(x);
+              num += 1;
+          }
+          while (num < y);
+          console.log("complete");
+      }
+  }
+1. let test1 = magic_multiply(5,2);
+    console.log(test1);
+
+2. let test2 = magic_multiply(0,0);
+    console.log(test2);
+
+3. let test3 = magic_multiply([1,2,3],2)
+    console.log(test3);
+
+4. let test4 = magic_multiply(7, "three");
+    console.log(test4);
+
+5. let test5 = magic_multiply("Brendo", 4);
