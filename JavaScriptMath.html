@@ -1,0 +1,48 @@
+1. function zero_negativity(arr){
+    for(i = 0; i < arr.length; i ++){
+        if(arr[i] < 0){
+            return false;
+        }
+        else{
+          continue;
+        }
+    }
+    return true;
+}
+zero_negativity([1,2,3,4,-1,0,4]);
+
+2. function isEven(x){
+    if(x%2===0){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+isEven(2);
+
+3. function how_many_even(arr){
+    let count = 0;
+    for(i = 0; i < arr.length; i ++){
+        if (arr[i]%2===0)
+        count += 1;
+    }
+    return count;
+}
+how_many_even([1,2,3,4,5,6]);
+
+4. function create_dummy_array(n){
+    let arr = [];
+    while(arr.length < n){
+      let num = Math.floor(Math.random()* 9);
+        arr.push(num);
+    }
+    return arr;
+}
+create_dummy_array(7);
+
+5. function random_choice(arr){
+    let num = Math.floor(Math.random()* arr.length);
+    return arr[num];
+}
+random_choice([1,3,4,5,6,7,2,3,4,7,18,22]);
