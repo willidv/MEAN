@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Deck {
+            constructor() {
+                let suits = ["Hearts", "Clubs", "Spades", "Diamonds"];
+                let values = ["A", "K", "Q", "J", "10", "9", "8", "7", "6", "5", "4", "3", "2"];
+                let cards = [];
+                for (let i = 0; i < suits.length; i++) {
+                    for (let j = 0; j < values.length; j++) {
+                        cards.push(values[j] + suits[i]);
+                    }
+                }
+                this.cards = cards;
+            }
+            shuffle() {
+                let shuffledDeck = [];
+                let L = this.cards.length;
+                let I;
+                while (L) {
+                    I = Math.floor(Math.random() * L--);
+                    shuffledDeck.push(this.cards.splice(I, 1)[0]);
+                }
+                this.cards = shuffledDeck;
+                return this;
+            }
+            reset() {
+                this.cards = new Deck().cards;
+                return this;
+            }
+            deal() {
+                let hand;
+                let i = Math.floor(Math.random() * this.cards.length);
+                hand = this.cards[i];
+                this.cards.splice(i, 1);
+                console.log(hand);
+                return hand;
+            }
+        }
+
+        class Person {
+            constructor(name) {
+                this.name = name;
+                this.hand = [];
+            }
+            take(Deck) {
+                this.hand.push(Deck.deal());
+                return this;
+            }
+            discard(card) {
+                this.hand.splice(card, 1);
+                return this;
+            }
+        }
+
+        let Deck1 = new Deck();
+        let person1 = new Person('Dave');
+        person1.take(Deck1).take(Deck1);
+        person1.discard(person1.hand);
+        console.log(person1.hand);
+
+    </script>
+</body>
+
+</html>
